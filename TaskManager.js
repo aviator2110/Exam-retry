@@ -77,6 +77,7 @@ export class TaskManager {
 
             const deleteBtn = document.createElement("button");
             deleteBtn.textContent = "Delete";
+            deleteBtn.id = "delete-button";
             deleteBtn.addEventListener("click", (e) => {
                 this.#allTasks = this.#allTasks.filter(t => t.id !== task.id);
                 this.#saveTasks();
@@ -84,8 +85,16 @@ export class TaskManager {
                 e.stopPropagation();
             });
 
+            const editBtn = document.createElement("button");
+            editBtn.textContent = "Edit";
+            editBtn.id = "edit-button";
+            editBtn.addEventListener("click", (e) => {
+
+            })
+
             li.appendChild(checkbox);
             li.appendChild(label);
+            li.appendChild(editBtn);
             li.appendChild(deleteBtn);
 
             li.addEventListener("click", () => {

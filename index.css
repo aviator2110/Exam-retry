@@ -93,12 +93,29 @@ body {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
+        width: 50%;
         height: 40px;
         background-color: skyblue;
         border-radius: 8px;
         padding: 8px;
         margin-bottom: 6px;
+
+        span {
+            margin-left: 10px;
+        }
+
+        #edit-button {
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        #edit-button:hover {
+            border: 2px solid springgreen;
+        }
+
+        #delete-button:hover {
+            border: 2px solid red;
+        }
 
         button{
             border: none;
@@ -114,6 +131,8 @@ body {
 
     li:hover {
         cursor: pointer;
+        background-color: cornflowerblue;
+        transition: 500ms;
     }
 }
 
