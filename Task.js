@@ -58,6 +58,14 @@ export class Task {
         this.#isComplete = isComplete;
     }
 
+    set name(value){
+        this.#name = value;
+    }
+
+    set description(value){
+        this.#description = value;
+    }
+
     toJSON(){
         return {
             id: this.#id,

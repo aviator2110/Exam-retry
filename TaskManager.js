@@ -5,9 +5,15 @@ export class TaskManager {
     #tasksListElement = document.getElementById("tasks-list");
     #modal = document.getElementById("task-modal");
 
-    constructor() {
+    constructor(mustRender = true) {
         this.#allTasks = this.#loadTasks();
-        this.#renderTasks();
+        if (mustRender) {
+            this.#renderTasks();
+        }
+    }
+
+    get allTasks() {
+        return this.#allTasks;
     }
 
     addTask(name, description) {
@@ -53,6 +59,10 @@ export class TaskManager {
         localStorage.setItem("tasks", json);
     }
 
+    get saveTasks(){
+        return this.#saveTasks();
+    }
+
     #renderTasks() {
         this.#tasksListElement.innerHTML = ""; // очищаем список
 
@@ -89,7 +99,8 @@ export class TaskManager {
             editBtn.textContent = "Edit";
             editBtn.id = "edit-button";
             editBtn.addEventListener("click", (e) => {
-
+                e.stopPropagation();
+                window.location.href = `edit/edit.html?id=${task.id}`;
             })
 
             li.appendChild(checkbox);
