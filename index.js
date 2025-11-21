@@ -21,3 +21,17 @@ hideFormButton.addEventListener("click", (e) => {
         hideFormButton.textContent = "Add task";
     }
 })
+
+const manager = new TaskManager();
+
+const addNewTaskBtn = document.getElementById("submit-add-form");
+
+addNewTaskBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const dataForm = new FormData(addTaskForm);
+    const name = dataForm.get("name");
+    const description = dataForm.get("description");
+
+    manager.addTask(name, description);
+})

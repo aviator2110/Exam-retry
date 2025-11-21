@@ -54,6 +54,10 @@ export class Task {
         Task.#lastId = lastId;
     }
 
+    set isComplete(isComplete) {
+        this.#isComplete = isComplete;
+    }
+
     toJSON(){
         return {
             id: this.#id,
