@@ -34,4 +34,6 @@ addNewTaskBtn.addEventListener("click", (e) => {
     const description = dataForm.get("description");
 
     manager.addTask(name, description);
+
+    addTaskForm.reset();
 })

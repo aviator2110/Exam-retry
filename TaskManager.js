@@ -126,6 +126,7 @@ export class TaskManager {
 
         this.#modal.innerHTML = `
             <h3>${task.name}</h3>
+            <p><strong>Id:</strong> ${task.id}</p>
             <p><strong>Description:</strong> ${task.description}</p>
             <p><strong>Created at:</strong> ${task.creationDate}</p>
             <p><strong>Complete status:</strong> ${completeStatus}</p>

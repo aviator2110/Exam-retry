@@ -16,14 +16,14 @@ const editForm = document.getElementById("edit-form");
 
 
 if (!task) {
-    notFound404.style.display = "flex";
-    notFound404.style.flexDirection = "column";
-    editForm.style.display = "none";
+    window.location.href = "../not-found.html";
 }else {
     document.getElementById("name").value = task.name;
     document.getElementById("description").value = task.description;
 
-    document.getElementById("save").addEventListener("click", () => {
+    document.getElementById("save").addEventListener("click", (e) => {
+        e.preventDefault();
+
         task.name = document.getElementById("name").value;
         task.description = document.getElementById("description").value;
 
