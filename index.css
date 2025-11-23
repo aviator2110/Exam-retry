@@ -183,3 +183,15 @@ body {
         height: 30px;
     }
 }
+
+#sort-filter {
+
+
+    select{
+        width: 140px;
+        height: 30px;
+        border-radius: 6px;
+        border: 1px solid burlywood;
+        background-color: darkseagreen;
+    }
+}

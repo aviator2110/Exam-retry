@@ -5,15 +5,8 @@ const manager = new TaskManager(false);
 
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
-
-console.log("Editing task with id:", id);
-
 const tasks = manager.allTasks;
 const task = tasks.find(t => t.id === id);
-
-const notFound404 = document.getElementById("not-found");
-const editForm = document.getElementById("edit-form");
-
 
 if (!task) {
     window.location.href = "../not-found.html";
