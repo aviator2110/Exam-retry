@@ -63,3 +63,22 @@ addNewTaskBtn.addEventListener("click", (e) => {
 
     addTaskForm.reset();
 })
+
+const sortSelect = document.getElementById("sort-select");
+
+sortSelect.addEventListener("change", () => {
+    if (sortSelect.value === "date") {
+        manager.sortByDate();
+    }
+    if (sortSelect.value === "name") {
+        manager.sortByName();
+    }
+
+    manager.setSort(sortSelect.value);
+});
+
+const filterSelect = document.getElementById("filter-select");
+
+filterSelect.addEventListener("change", () => {
+    manager.setFilter(filterSelect.value);
+});

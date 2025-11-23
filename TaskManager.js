@@ -5,6 +5,9 @@ export class TaskManager {
     #tasksListElement = document.getElementById("tasks-list");
     #modal = document.getElementById("task-modal");
 
+    #currentFilter = "all";
+    #currentSort = "date";
+
     constructor(mustRender = true) {
         this.#allTasks = this.#loadTasks();
         if (mustRender) {
@@ -64,9 +67,23 @@ export class TaskManager {
     }
 
     #renderTasks() {
-        this.#tasksListElement.innerHTML = ""; // очищаем список
+        this.#tasksListElement.innerHTML = "";
 
-        this.#allTasks.forEach(task => {
+        let filtered = this.#allTasks.filter(task => {
+            if (this.#currentFilter === "completed") return task.isComplete;
+            if (this.#currentFilter === "not-completed") return !task.isComplete;
+            return true; // all
+        });
+
+        if (this.#currentSort === "date") {
+            filtered.sort((a, b) => new Date(b.creationDate) - new Date(a.creationDate));
+        }
+        if (this.#currentSort === "name") {
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        filtered.forEach(task => {
+
             const li = document.createElement("li");
 
             const checkbox = document.createElement("input");
@@ -138,5 +155,33 @@ export class TaskManager {
         document.getElementById("close-modal").addEventListener("click", () => {
             this.#modal.style.display = "none";
         });
+    }
+
+    sortByDate() {
+        this.#allTasks.sort((a, b) => {
+            return new Date(b.creationDate) - new Date(a.creationDate);
+        });
+
+        this.#saveTasks();
+        this.#renderTasks();
+    }
+
+    sortByName() {
+        this.#allTasks.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        });
+
+        this.#saveTasks();
+        this.#renderTasks();
+    }
+
+    setFilter(filter) {
+        this.#currentFilter = filter;
+        this.#renderTasks();
+    }
+
+    setSort(sort) {
+        this.#currentSort = sort;
+        this.#renderTasks();
     }
 }

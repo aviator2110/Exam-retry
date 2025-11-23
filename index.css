@@ -186,6 +186,7 @@ body {
 
 #sort-filter {
 
+    margin-bottom: 10px;
 
     select{
         width: 140px;

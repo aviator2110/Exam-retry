@@ -22,10 +22,6 @@ export class Task {
         }
     }
 
-    deleteTask() {
-
-    }
-
     get id(){
         return this.#id;
     }
@@ -74,9 +70,5 @@ export class Task {
             creationDate: this.#creationDate,
             isComplete: this.#isComplete,
         }
-    }
-
-    editTask() {
-
     }
 }
