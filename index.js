@@ -33,6 +33,32 @@ addNewTaskBtn.addEventListener("click", (e) => {
     const name = dataForm.get("name");
     const description = dataForm.get("description");
 
+    const nameRegex = /^(?![0-9 ]+$)(?:[A-Za-z]{1,16}|[А-Яа-яЁё]{1,16}|[0-9]{1,16})(?: (?:[A-Za-z]{1,16}|[А-Яа-яЁё]{1,16}|[0-9]{1,16}))+$/;
+    const descriptionRegex = /^(?:[A-Za-z]{1,16}|[А-Яа-яЁё]{1,16}|[0-9]{1,16})(?: (?:[A-Za-z]{1,16}|[А-Яа-яЁё]{1,16}|[0-9]{1,16}))*$/;
+
+    const nameErrorMsg = document.getElementById("name-error-message");
+    const descErrorMsg = document.getElementById("description-error-message");
+    const sameErrorMsg = document.getElementById("inputs-are-same-error");
+
+    nameErrorMsg.style.display = "none";
+    descErrorMsg.style.display = "none";
+    sameErrorMsg.style.display = "none";
+
+    if (!nameRegex.test(name)){
+        nameErrorMsg.style.display = "flex";
+        return;
+    }
+
+    if (!descriptionRegex.test(description)){
+        descErrorMsg.style.display = "flex";
+        return;
+    }
+
+    if (name === description){
+        sameErrorMsg.style.display = "flex";
+        return;
+    }
+
     manager.addTask(name, description);
 
     addTaskForm.reset();

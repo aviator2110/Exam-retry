@@ -61,6 +61,24 @@ body {
             transform: scale(1.1);
             transition: 300ms;
         }
+
+        #name-error-message {
+            display: none;
+            color: red;
+            margin-left: 6px;
+        }
+
+        #description-error-message {
+            display: none;
+            color: red;
+            margin-left: 6px;
+        }
+
+        #inputs-are-same-error {
+            display: none;
+            color: red;
+            margin-left: 6px;
+        }
     }
 
     button {

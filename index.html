@@ -14,10 +14,15 @@
             <label>
                 <span>Task name:</span>
                 <input type="text" name="name" placeholder="Enter task name">
+                <br>
+                <span id="name-error-message">Invalid name input</span>
             </label>
             <label>
                 <span>Task description: </span>
                 <input type="text" name="description" placeholder="Enter task description">
+                <br>
+                <span id="description-error-message">Invalid description input</span>
+                <span id="inputs-are-same-error">Name and Description can not be the same</span>
             </label>
             <button id="submit-add-form">Add task</button>
         </form>

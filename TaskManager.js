@@ -40,7 +40,7 @@ export class TaskManager {
                 }
             }
 
-            Task.lastId = maxId;
+            Task.lastId = maxId + 1;
         } else {
             Task.lastId = 0;
         }
