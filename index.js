@@ -67,13 +67,6 @@ addNewTaskBtn.addEventListener("click", (e) => {
 const sortSelect = document.getElementById("sort-select");
 
 sortSelect.addEventListener("change", () => {
-    if (sortSelect.value === "date") {
-        manager.sortByDate();
-    }
-    if (sortSelect.value === "name") {
-        manager.sortByName();
-    }
-
     manager.setSort(sortSelect.value);
 });
 

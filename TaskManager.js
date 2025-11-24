@@ -70,9 +70,14 @@ export class TaskManager {
         this.#tasksListElement.innerHTML = "";
 
         let filtered = this.#allTasks.filter(task => {
-            if (this.#currentFilter === "completed") return task.isComplete;
-            if (this.#currentFilter === "not-completed") return !task.isComplete;
-            return true; // all
+            if (this.#currentFilter === "completed") {
+                return task.isComplete;
+            }
+            if (this.#currentFilter === "not-completed") {
+                return !task.isComplete;
+            }
+
+            return true;
         });
 
         if (this.#currentSort === "date") {
@@ -155,24 +160,6 @@ export class TaskManager {
         document.getElementById("close-modal").addEventListener("click", () => {
             this.#modal.style.display = "none";
         });
-    }
-
-    sortByDate() {
-        this.#allTasks.sort((a, b) => {
-            return new Date(b.creationDate) - new Date(a.creationDate);
-        });
-
-        this.#saveTasks();
-        this.#renderTasks();
-    }
-
-    sortByName() {
-        this.#allTasks.sort((a, b) => {
-            return a.name.localeCompare(b.name);
-        });
-
-        this.#saveTasks();
-        this.#renderTasks();
     }
 
     setFilter(filter) {

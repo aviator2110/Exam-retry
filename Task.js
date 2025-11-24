@@ -42,10 +42,6 @@ export class Task {
         return this.#isComplete;
     }
 
-    static get lastId(){
-        return Task.#lastId;
-    }
-
     static set lastId(lastId) {
         Task.#lastId = lastId;
     }
